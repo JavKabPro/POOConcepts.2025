@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POO.Concepts.Core
 {
-    public abstract class Employee  //Esta clase va hacer abstracta
+    public abstract class Employee : IPay  //Esta clase va hacer abstracta, ya está implementando la interfaz IPay
     {
         public int Id { get; set; } //No me interesa validar el Id solo que crando la propiedad sea privada, es suficiente
         public string FirstName { get; set; } = null!;
@@ -20,8 +20,7 @@ namespace POO.Concepts.Core
                                                  //**Tienes que implementar los métodos abstractos en las clases que hereden de la clase abstracta**//
         public override string ToString() =>
                 $"{Id}\t{FirstName} {LastName}\n\t" +
-                $"Hire date..: {HireDate}\n\t" +
-                $"Salary.....: {GetValueToPay():C2}";
-
+                $"Born date......: {BornDate}\n\t" +
+                $"Hire date......: {HireDate}";
     }
 }

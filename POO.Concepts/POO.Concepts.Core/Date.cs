@@ -22,41 +22,27 @@ public class Date               //Attributes
         Month = month; 
         Day = day;
     }
-    public int Day              //Public properties must begin with a capital letter.  
+    public int Day                      //Public properties must begin with a capital letter.  
     {
-        get => _day;            //I want properties to be linked to attributes.
-        set                     //... and I want that the privates attributes have relation with
-        {                       //publics properties...
-            _day = ValidateDay(value);
-        }
-    }
+        get => _day;                    //I want properties to be linked to attributes.
+        set => _day = ValidateDay(value);                    //... and I want that the privates attributes have relation with
+    }                                                        //publics properties...
+    
     public int Month 
     {
         get => _month;          //Replaced with arrow notation
-        set
-        {
-            _month =ValidateMonth(value);
-        }
+        set => _month =ValidateMonth(value);
     }
     public int Year 
     {
         get => _year;           //Replaced with arrow notation
-        set
-        {
-            _year = ValidateYear(value);
-        }
+        set => _year = ValidateYear(value);
     }
 
-    public override string ToString()
-    {
-        return $"{Year:0000}/{Month:00}/{Day:00}"; //Interpolation and format in which I want the hours
-    }
-
-    private bool IsLapYear(int year)            //Method IsLapYear
-    {
-        return (year % 4 == 0 && year % 100 == 0) || (year % 400 == 0);
-    }
-
+    public override string ToString() => $"{Year:0000}/{Month:00}/{Day:00}"; //Interpolation and format in which I want the hours
+    
+    private bool IsLapYear(int year) => (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);     //Method IsLapYear
+        
     private int ValidateYear(int year) 
     {
         if (year < 0)
